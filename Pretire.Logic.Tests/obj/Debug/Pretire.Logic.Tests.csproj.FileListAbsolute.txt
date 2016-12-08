@@ -1,7 +1,0 @@
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\bin\Debug\Pretire.Logic.Tests.dll
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\bin\Debug\Pretire.Logic.Tests.pdb
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\bin\Debug\Pretire.Logic.dll
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\bin\Debug\Pretire.Logic.pdb
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\obj\Debug\Pretire.Logic.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\obj\Debug\Pretire.Logic.Tests.dll
-C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic.Tests\obj\Debug\Pretire.Logic.Tests.pdb
