@@ -1,0 +1,46 @@
+﻿@model Pretire.ViewModels.Income.ViewSalariesViewModel
+@{
+    ViewBag.Title = "Salary";
+}
+
+<h2>Salary</h2>
+
+<table>
+    <thead>
+        <tr>
+            <td>Year</td>
+            <td>Salary</td>
+            <td>401k Contribution</td>
+            <td>Income Tax</td>
+            <td>Social Security</td>
+            <td>Medicare</td>
+            <td>Remaining Salary</td>
+        </tr>
+    </thead>
+    @foreach(var year in Model.SalariesByYear)
+    {
+        <tr>
+            <td>
+                @year.Year
+            </td>
+            <td>
+                @year.BaseIncome.ToString("c")
+            </td>
+            <td>
+                @year.ContributionTo401k.ToString("c")
+            </td>
+            <td>
+                @year.TaxesPaid.ToString("c")
+            </td>
+            <td>
+                @year.SocialSecurityPaid.ToString("c")
+            </td>
+            <td>
+                @year.MedicarePaid.ToString("c")
+            </td>
+            <td>
+                @year.RemainingIncome.ToString("c")
+            </td>
+        </tr>
+    }
+</table>

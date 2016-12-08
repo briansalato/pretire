@@ -1,0 +1,5 @@
+C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic\bin\Debug\Pretire.Logic.dll
+C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic\bin\Debug\Pretire.Logic.pdb
+C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic\obj\Debug\Pretire.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic\obj\Debug\Pretire.Logic.dll
+C:\Users\Brian\documents\visual studio 2015\Projects\Pretire\Pretire.Logic\obj\Debug\Pretire.Logic.pdb
