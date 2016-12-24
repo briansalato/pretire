@@ -1,0 +1,102 @@
+﻿@model Pretire.ViewModels.Person.CreatePersonViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1>Add a Person</h1>
+
+    <h2>Personal Information</h2>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BirthYear)
+        @Html.TextBoxFor(m => m.BirthYear, new { @class = "form-control non-zero", placeholder="YYYY", mask = "0000" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RetirementAge)
+        @Html.TextBoxFor(m => m.RetirementAge, new { @class = "form-control non-zero", mask="000" })
+    </div>
+
+    <h2>Salary</h2>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CurrentSalaryYear)
+        @Html.TextBoxFor(m => m.CurrentSalaryYear, new { @class = "form-control non-zero", placeholder = "YYYY", mask = "0000" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.YearlySalary)
+        @Html.TextBoxFor(m => m.YearlySalary, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SalaryGrowthType)
+        @Html.EnumDropDownListFor(m => m.SalaryGrowthType, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.YearlySalaryGrowthRate)
+        @Html.TextBoxFor(m => m.YearlySalaryGrowthRate, new { @class = "form-control" })
+    </div>
+
+    <h2>Taxes</h2>
+    <div class="form-group">
+        <label for="taxCode">Income Tax Type</label>
+        <input type="text" disabled="disabled" name="taxCode" value="US Tax Code" class="form-control"  />
+    </div>
+
+    <div class="form-group">
+        <label for="socialSecurity">Social Security Type</label>
+        <input type="text" disabled="disabled" name="socialSecurity" value="US Social Security" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="medicare">Medicare Type</label>
+        <input type="text" disabled="disabled" name="medicare" value="US Medicare" class="form-control"  />
+    </div>
+
+    <h2>401k</h2>
+    <div class="section-401k">
+        <div class="form-group">
+            @Html.LabelFor(m => m.TypeOf401k)
+            @Html.EnumDropDownListFor(m => m.TypeOf401k, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ContributionTo401kType)
+            @Html.EnumDropDownListFor(m => m.ContributionTo401kType, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Yearly401kContribution)
+            @Html.TextBoxFor(m => m.Yearly401kContribution, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Yearly401kGrowthRateType)
+            @Html.EnumDropDownListFor(m => m.Yearly401kGrowthRateType, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Yearly401kGrowthRate)
+            @Html.TextBoxFor(m => m.Yearly401kGrowthRate, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-default" />
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquerymask")
+
+    <script type="text/javascript">
+        $(function () {
+            Pretire.createPerson.init();
+        });
+    </script>
+}

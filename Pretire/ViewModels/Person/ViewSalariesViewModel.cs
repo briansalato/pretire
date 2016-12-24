@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Pretire.ViewModels.Income
+namespace Pretire.ViewModels.Person
 {
     public class ViewSalariesViewModel
     {

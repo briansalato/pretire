@@ -2,8 +2,9 @@
 
 namespace Pretire.Logic.Spending.Models
 {
-    public class Cost
+    public class CostItem
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Category { get; set; }
@@ -15,6 +16,30 @@ namespace Pretire.Logic.Spending.Models
         public bool IsActive { get; set; }
         public decimal RetirementFactor { get; set; }
         public ICalculator GrowthCalculator { get; set; }
+
+        public string DisplayCost
+        {
+            get
+            {
+                string frequency;
+                decimal paymentAmount;
+
+                switch (PaymentType)
+                {
+                    case PaymentType.Monthly:
+                        frequency = "month";
+                        paymentAmount = YearlyPaymentAmount / 12;
+                        break;
+                    case PaymentType.Yearly:
+                    default:
+                        frequency = "year";
+                        paymentAmount = YearlyPaymentAmount;
+                        break;
+                }
+
+                return paymentAmount.ToString("c") + " / " + frequency;
+            }
+        }
 
         public decimal CalculateCostForYear(int year)
         {

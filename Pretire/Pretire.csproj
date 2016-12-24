@@ -197,10 +197,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Builders\IncomeBuilder.cs" />
+    <Compile Include="Builders\NetWorthBuilder.cs" />
+    <Compile Include="Controllers\NetWorthController.cs" />
     <Compile Include="Builders\SpendingBuilder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncomeController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\LoggedInController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SpendingController.cs" />
@@ -212,9 +214,13 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Income\ViewSalariesViewModel.cs" />
-    <Compile Include="ViewModels\Income\SalaryYear.cs" />
-    <Compile Include="ViewModels\Spending\SpendingSummaryViewModel.cs" />
+    <Compile Include="ViewModels\Person\AccountType401k.cs" />
+    <Compile Include="ViewModels\Person\ContributionTo401kType.cs" />
+    <Compile Include="ViewModels\Person\CreatePersonViewModel.cs" />
+    <Compile Include="ViewModels\Person\GrowthType.cs" />
+    <Compile Include="ViewModels\Person\ViewSalariesViewModel.cs" />
+    <Compile Include="ViewModels\Person\SalaryYear.cs" />
+    <Compile Include="ViewModels\Spending\SpendingByYearViewModel.cs" />
     <Compile Include="ViewModels\Spending\CostSummaryYear.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,11 +239,14 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pretire.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -275,12 +284,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Income\Salary.cshtml" />
+    <Content Include="Views\Person\Salary.cshtml" />
+    <Content Include="Views\Spending\ByYear.cshtml" />
     <Content Include="Views\Spending\Index.cshtml" />
+    <Content Include="Views\Spending\EditorTemplates\Cost.cshtml" />
+    <Content Include="Views\Person\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\LoggedIn\" />
+    <Folder Include="Views\Dashboard\" />
+    <Folder Include="Views\NetWorth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

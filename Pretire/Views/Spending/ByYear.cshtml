@@ -1,0 +1,32 @@
+﻿@model Pretire.ViewModels.Spending.SpendingByYearViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Year</th>
+            @foreach(var type in Model.CostTypeNames)
+            {
+                <th>@type</th>
+            }
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var yearlyData in Model.YearlyData)
+        {
+            <tr>
+                <td>@yearlyData.Year</td>
+                @foreach(var type in yearlyData.CostTotalByType)
+                {
+                    <td>@type.Value.ToString("c")</td>
+                }
+                <td>@yearlyData.CostTotal.ToString("c")</td>
+            </tr>
+        }
+    </tbody>
+</table>

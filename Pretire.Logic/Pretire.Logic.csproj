@@ -45,7 +45,12 @@
     <Compile Include="Assets\Models\InvestmentAccount401k.cs" />
     <Compile Include="Assets\Models\TypeOf401k.cs" />
     <Compile Include="Calculators\Impl\NoGrowthCalculator.cs" />
-    <Compile Include="Spending\Models\Cost.cs" />
+    <Compile Include="Salary\Logic\ISalaryLogic.cs" />
+    <Compile Include="Salary\Logic\Impl\SalaryLogic.cs" />
+    <Compile Include="Salary\Models\YearlyPersonalSalary.cs" />
+    <Compile Include="Spending\Logic\Impl\SpendingLogic.cs" />
+    <Compile Include="Spending\Logic\ISpendingLogic.cs" />
+    <Compile Include="Spending\Models\CostItem.cs" />
     <Compile Include="Spending\Models\PaymentType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Calculators\ICalculator.cs" />
@@ -57,10 +62,11 @@
     <Compile Include="Retirement\Impl\FlatAmountPercentageGrowth401kCalculator.cs" />
     <Compile Include="Retirement\Impl\Max401kContributionCalculator.cs" />
     <Compile Include="Retirement\Impl\PercentageRatePercentageGrowth401kCalculator.cs" />
+    <Compile Include="Spending\Models\YearlyItemCost.cs" />
     <Compile Include="Taxes\Calculators\IIncomeTaxCalculator.cs" />
     <Compile Include="Retirement\IRetirementCalculator.cs" />
-    <Compile Include="Income\Models\Person.cs" />
-    <Compile Include="Income\Models\SalaryYear.cs" />
+    <Compile Include="Salary\Models\Person.cs" />
+    <Compile Include="Salary\Models\YearlySalary.cs" />
     <Compile Include="Taxes\Models\TaxBracket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Taxes\Calculators\Impl\FICAIncomeTaxCalculator.cs" />

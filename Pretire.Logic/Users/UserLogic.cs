@@ -2,9 +2,10 @@
 using Pretire.Logic.Retirement.Impl;
 using System.Collections.Generic;
 using Pretire.Logic.Calculators.Impl;
-using Pretire.Logic.Income.Models;
+using Pretire.Logic.Salary.Models;
 using Pretire.Logic.Taxes.Calculators.Impl;
 using Pretire.Logic.Spending.Models;
+using Pretire.Logic.Assets.Models;
 
 namespace Pretire.Logic.Users
 {
@@ -23,7 +24,14 @@ namespace Pretire.Logic.Users
                         IncomeGrowthRate = .05M,
                         StartingYear = _currentYear,
                         IncomeCalculator = PercentGrowthCalculator.Instance,
-                       // RetirementCalculator = FlatAmountFlatGrowth401kCalculator.Instance; (18000, 500, _currentYear),
+                        RetirementAccount = new InvestmentAccount401k()
+                        {
+                            StartingContribution = 18000,
+                            GrowthRate = 500,
+                            Type = TypeOf401k.Traditional,
+                            StartingYear = _currentYear,
+                            ContributionCalculator= FlatAmountFlatGrowth401kCalculator.Instance
+                        },
                         IncomeTaxCalculator = new SingleFilingIncomeTaxCalculator(),
                         SocialSecurityCalculator = new SocialSecurityCalculator(),
                         MedicareCalculator = new MedicareCalculator()
@@ -38,10 +46,11 @@ namespace Pretire.Logic.Users
                     //    RetirementCalculator = new FlatAmountFlatGrowth401kCalculator(18000, 500, _currentYear)
                     //}
                 },
-                Costs = new List<Cost>()
+                Costs = new List<CostItem>()
                 {
-                    new Cost()
+                    new CostItem()
                     {
+                        Id = 1,
                         Name = "Mortgage",
                         Type =  "Fixed",
                         Category = "Home",
@@ -53,8 +62,9 @@ namespace Pretire.Logic.Users
                         RetirementFactor = 1,
                         GrowthCalculator = NoGrowthCalculator.Instance
                     },
-                    new Cost()
+                    new CostItem()
                     {
+                        Id = 2,
                         Name = "Home Insurance",
                         Type =  "Fixed",
                         Category = "Home",
@@ -67,8 +77,9 @@ namespace Pretire.Logic.Users
                         RetirementFactor = 1,
                         GrowthCalculator = PercentGrowthCalculator.Instance
                     },
-                    new Cost()
+                    new CostItem()
                     {
+                        Id = 3,
                         Name = "Property Tax",
                         Type =  "Fixed",
                         Category = "Home",
@@ -81,8 +92,9 @@ namespace Pretire.Logic.Users
                         RetirementFactor = 1,
                         GrowthCalculator = PercentGrowthCalculator.Instance
                     },
-                    new Cost()
+                    new CostItem()
                     {
+                        Id = 4,
                         Name = "Electricity",
                         Type =  "Adjustable",
                         Category = "Utilities",

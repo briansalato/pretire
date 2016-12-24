@@ -1,20 +1,28 @@
 ﻿using Pretire.Builders;
-using Pretire.Logic.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Pretire.ViewModels.Person;
 using System.Web.Mvc;
 
 namespace Pretire.Controllers
 {
-    public class IncomeController : LoggedInController
+    public class PersonController : LoggedInController
     {
         // GET: Income
         [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult New()
+        {
+            return View(new CreatePersonViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Create(CreatePersonViewModel person)
+        {
+            return null;
         }
 
         [HttpGet]

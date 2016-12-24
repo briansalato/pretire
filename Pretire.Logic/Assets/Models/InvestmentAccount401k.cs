@@ -10,7 +10,7 @@ namespace Pretire.Logic.Assets.Models
 {
     public class InvestmentAccount401k
     {
-        public decimal StartingValue { get; set; }
+        public decimal StartingContribution { get; set; }
         public int StartingYear { get; set; }
         public decimal GrowthRate { get; set; }
         public TypeOf401k Type { get; set; }

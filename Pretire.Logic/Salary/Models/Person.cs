@@ -3,7 +3,7 @@ using Pretire.Logic.Calculators;
 using Pretire.Logic.Retirement;
 using Pretire.Logic.Taxes.Calculators;
 
-namespace Pretire.Logic.Income.Models
+namespace Pretire.Logic.Salary.Models
 {
     public class Person
     {

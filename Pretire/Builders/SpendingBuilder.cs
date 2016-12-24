@@ -7,9 +7,9 @@ namespace Pretire.Builders
 {
     public class SpendingBuilder
     {
-        public SpendingSummaryViewModel BuildSpendingSummaryViewModel(ICollection<Cost> costs, int startYear, int endYear)
+        public SpendingByYearViewModel BuildSpendingByYearViewModel(ICollection<CostItem> costs, int startYear, int endYear)
         {
-            var viewModel = new SpendingSummaryViewModel();
+            var viewModel = new SpendingByYearViewModel();
             viewModel.CostTypeNames = costs.Select(c => c.Type).Distinct().ToList();
             viewModel.YearlyData = new List<CostSummaryYear>();
 

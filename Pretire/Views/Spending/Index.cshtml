@@ -1,32 +1,21 @@
-﻿@model Pretire.ViewModels.Spending.SpendingSummaryViewModel
+﻿@model ICollection<Pretire.Logic.Spending.Models.Cost>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Year</th>
-            @foreach(var type in Model.CostTypeNames)
-            {
-                <th>@type</th>
-            }
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var yearlyData in Model.YearlyData)
+@foreach(var cost in Model)
+{
+    <div class="cost-header">
+        <h3>@cost.Name</h3>
+        <span>@cost.DisplayCost</span>
+    </div>
+    <div class="cost-details">
+        @using (Html.BeginForm("UpdateCost"))
         {
-            <tr>
-                <td>@yearlyData.Year</td>
-                @foreach(var type in yearlyData.CostTotalByType)
-                {
-                    <td>@type.Value.ToString("c")</td>
-                }
-                <td>@yearlyData.CostTotal.ToString("c")</td>
-            </tr>
+            @Html.Partial("EditorTemplates/Cost", cost)
         }
-    </tbody>
-</table>
+    </div>
+}
+

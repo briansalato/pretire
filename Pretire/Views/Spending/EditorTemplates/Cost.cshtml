@@ -1,0 +1,10 @@
+﻿@model Pretire.Logic.Spending.Models.Cost
+
+<div>
+    <label for="Name_@Model.Id">Name</label>
+    @Html.TextBox("Name", @Model.Name, new { id = "Name_" + Model.Id })
+</div>
+<div>
+    <label for="YearlyPaymentAmount_@Model.Id">Yearly Payment</label>
+    @Html.TextBox("YearlyPaymentAmount", @Model.YearlyPaymentAmount, new { id = "YearlyPaymentAmount_" + Model.Id })
+</div>
