@@ -1,4 +1,5 @@
 ﻿using Pretire.Logic.Spending.Models;
+using Pretire.ViewModels;
 using Pretire.ViewModels.Spending;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,23 @@ namespace Pretire.Builders
 
                 viewModel.YearlyData.Add(yearData);
             }
+            return viewModel;
+        }
+
+        public CostByYearsViewModel BuildCostByYearViewModel(CostItem cost, int startYear, int endYear)
+        {
+            var viewModel = new CostByYearsViewModel();
+            viewModel.Name = cost.Name;
+            viewModel.YearlyValues = new List<YearlyAmount>();
+            for (var year = startYear; year <= endYear; year++)
+            {
+                viewModel.YearlyValues.Add(new YearlyAmount()
+                {
+                    Year = year,
+                    Amount = cost.CalculateCostForYear(year)
+                });
+            }
+
             return viewModel;
         }
     }

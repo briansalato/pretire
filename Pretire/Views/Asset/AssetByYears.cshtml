@@ -1,0 +1,43 @@
+﻿@model Pretire.ViewModels.Asset.AssetByYearsViewModel
+@{
+    ViewBag.Title = "Asset over Years";
+}
+
+<h2>@Model.Name</h2>
+
+<table>
+    <thead>
+        <tr>
+            <td>Year</td>
+            <td>Starting Value</td>
+            <td>Amount Contributed</td>
+            <td>Amount Grown</td>
+            <td>Taxes Paid</td>
+            <td>Year End Value</td>
+        </tr>
+    </thead>
+    @foreach (var year in Model.YearlyData)
+    {
+        <tr>
+            <td>
+                @year.Year
+            </td>
+            <td>
+                @year.StartingValue.ToString("c0")
+            </td>
+            <td>
+                @year.ContributionAmount.ToString("c0")
+            </td>
+            <td>
+                @year.GrowthAmount.ToString("c0")
+            </td>
+            <td>
+                @year.TaxedAmount.ToString("c0")
+            </td>
+            <td>
+                @year.EndingValue.ToString("c0")
+            </td>
+        </tr>
+    }
+</table>
+

@@ -55,11 +55,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Retirement\FlatAmountFlatGrowth401kCalculatorTests.cs" />
-    <Compile Include="Retirement\FlatAmountPercentageGrowth401kCalculatorTests.cs" />
-    <Compile Include="Retirement\Max401kContributionCalculatorTests.cs" />
-    <Compile Include="Retirement\PercentageRatePercentageGrowth401kCalculatorTests.cs" />
-    <Compile Include="Taxes\SingleFilingIncomeTaxCalculatorTests.cs" />
+    <Compile Include="Sandbox\AssetTests.cs" />
+    <Compile Include="Sandbox\SalaryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pretire.Logic\Pretire.Logic.csproj">

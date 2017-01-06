@@ -1,11 +1,11 @@
-﻿@model ICollection<Pretire.Logic.Spending.Models.Cost>
+﻿@model Pretire.ViewModels.Spending.SpendingByYearViewModel
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-@foreach(var cost in Model)
+@foreach(var cost in Model.YearlyData)
 {
     <div class="cost-header">
         <h3>@cost.Name</h3>

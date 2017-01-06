@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Pretire.Models;
+using Pretire.Logic.Users;
+using Pretire.Logic.Users.Managers;
 
 namespace Pretire.Controllers
 {
@@ -155,6 +157,9 @@ namespace Pretire.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    // TODO hard coded constructor
+                    (new UserManager()).Add(user.Email);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

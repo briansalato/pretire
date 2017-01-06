@@ -32,7 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,41 +51,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Models\InvestmentAccount401k.cs" />
-    <Compile Include="Assets\Models\TypeOf401k.cs" />
-    <Compile Include="Calculators\Impl\NoGrowthCalculator.cs" />
-    <Compile Include="Salary\Logic\ISalaryLogic.cs" />
-    <Compile Include="Salary\Logic\Impl\SalaryLogic.cs" />
-    <Compile Include="Salary\Models\YearlyPersonalSalary.cs" />
-    <Compile Include="Spending\Logic\Impl\SpendingLogic.cs" />
-    <Compile Include="Spending\Logic\ISpendingLogic.cs" />
-    <Compile Include="Spending\Models\CostItem.cs" />
-    <Compile Include="Spending\Models\PaymentType.cs" />
+    <Compile Include="Assets\Calculators\Impl\RemainingIncomeContributionCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\AssetContributionCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\NoRetirementContributionCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\Max401kContributionCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\YearEndGrowthCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\EvenDistributionGrowthCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\NoContributionCalculator.cs" />
+    <Compile Include="Assets\Calculators\Impl\NoGrowthCalculator.cs" />
+    <Compile Include="Assets\Managers\SalaryManager.cs" />
+    <Compile Include="Assets\Models\Asset.cs" />
+    <Compile Include="Assets\Models\GrowthType.cs" />
+    <Compile Include="Assets\Models\RetirementAsset.cs" />
+    <Compile Include="Assets\Models\SalaryAsset.cs" />
+    <Compile Include="Assets\Models\YearlySummary.cs" />
+    <Compile Include="Assets\Calculators\IContributionCalculator.cs" />
+    <Compile Include="Calculators\ICostGrowthCalculator.cs" />
+    <Compile Include="Assets\Calculators\IGrowthCalculator.cs" />
+    <Compile Include="Calculators\Impl\FlatGrowthCostCalculator.cs" />
+    <Compile Include="Calculators\Impl\NoGrowthCostCalculator.cs" />
+    <Compile Include="Calculators\Impl\PercentGrowthCostCalculator.cs" />
+    <Compile Include="Assets\Calculators\IRetirementContributionCalculator.cs" />
+    <Compile Include="Converters\GrowthEnumConverter.cs" />
+    <Compile Include="Converters\Entity\GrowthConverter.cs" />
+    <Compile Include="Converters\Entity\SalaryConverter.cs" />
+    <Compile Include="Converters\Entity\TaxBracketConverter.cs" />
+    <Compile Include="Converters\Entity\TaxCodeConverter.cs" />
+    <Compile Include="Converters\Entity\UserConverter.cs" />
+    <Compile Include="Taxes\Calculators\ITaxCalculator.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Calculators\ICalculator.cs" />
-    <Compile Include="Calculators\Impl\PercentGrowthCalculator.cs" />
-    <Compile Include="Calculators\Impl\FlatGrowthCalculator.cs" />
-    <Compile Include="Helpers\MathHelper.cs" />
-    <Compile Include="Retirement\Impl\Abstract401kCalculator.cs" />
-    <Compile Include="Retirement\Impl\FlatAmountFlatGrowth401kCalculator.cs" />
-    <Compile Include="Retirement\Impl\FlatAmountPercentageGrowth401kCalculator.cs" />
-    <Compile Include="Retirement\Impl\Max401kContributionCalculator.cs" />
-    <Compile Include="Retirement\Impl\PercentageRatePercentageGrowth401kCalculator.cs" />
-    <Compile Include="Spending\Models\YearlyItemCost.cs" />
-    <Compile Include="Taxes\Calculators\IIncomeTaxCalculator.cs" />
-    <Compile Include="Retirement\IRetirementCalculator.cs" />
-    <Compile Include="Salary\Models\Person.cs" />
-    <Compile Include="Salary\Models\YearlySalary.cs" />
-    <Compile Include="Taxes\Models\TaxBracket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Taxes\Calculators\Impl\FICAIncomeTaxCalculator.cs" />
-    <Compile Include="Taxes\Calculators\Impl\MedicareCalculator.cs" />
-    <Compile Include="Taxes\Calculators\Impl\SingleIncomeTaxCalculator.cs" />
-    <Compile Include="Taxes\Calculators\Impl\SocialSecurityCalculator.cs" />
-    <Compile Include="Taxes\Calculators\Impl\TieredIncomeTaxCalculator.cs" />
+    <Compile Include="Spending\Models\CostItem.cs" />
+    <Compile Include="Taxes\Calculators\Impl\TieredTaxBracketCalculator.cs" />
+    <Compile Include="Taxes\Calculators\Impl\USACapitalGainsCalculator.cs" />
+    <Compile Include="Taxes\Calculators\Impl\USAMedicareCalculator.cs" />
+    <Compile Include="Taxes\Calculators\Impl\USASingleTaxCalculator.cs" />
+    <Compile Include="Taxes\Calculators\Impl\USASocialSecurityCalculator.cs" />
+    <Compile Include="Taxes\Models\PremadeTaxBrackets.cs" />
+    <Compile Include="Taxes\Models\TaxBracket.cs" />
+    <Compile Include="Converters\Entity\SimulationConverter.cs" />
+    <Compile Include="Users\Managers\SimulationManager.cs" />
+    <Compile Include="Users\Managers\UserManager.cs" />
+    <Compile Include="Users\Models\Simulation.cs" />
     <Compile Include="Users\UserLogic.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Logic\Impl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brian.Common\Brian.Common.csproj">
+      <Project>{5a1e3964-9527-43fc-975f-40583d14df0d}</Project>
+      <Name>Brian.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pretire.Data\Pretire.Data.csproj">
+      <Project>{33fa0a32-7cef-4223-a9ef-39b97e33878f}</Project>
+      <Name>Pretire.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

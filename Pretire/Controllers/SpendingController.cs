@@ -1,4 +1,5 @@
 ﻿using Pretire.Builders;
+using Pretire.Logic.Spending.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,16 @@ namespace Pretire.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? costId)
         {
-           // var viewModel = _spendingBuilder.BuildCostListViewModel(CurrentUser.Costs);
+            //var viewModel = _spendingBuilder.BuildCostListViewModel(CurrentUser.Costs);
             return View(CurrentUser.Costs);
+        }
+
+        public ActionResult CostByYear(int costId)
+        {
+            var viewModel = _spendingBuilder.BuildCostByYearViewModel(CurrentUser.Costs.FirstOrDefault(cost => cost.Id == costId), 2019, 2018+40);
+            return View(viewModel);
         }
 
         private SpendingBuilder _spendingBuilder = new SpendingBuilder();

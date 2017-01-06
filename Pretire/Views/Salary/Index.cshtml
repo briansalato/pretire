@@ -1,0 +1,35 @@
+﻿@model System.Collections.Generic.ICollection<Pretire.ViewModels.Salary.SalarySummaryViewModel>
+
+<h2>Salaries</h2>
+
+<a href="@Url.Salary_ByYear()" class="btn btn-default">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+    View All Salaries over Time
+</a>
+
+<a href="@Url.Salary_New()" class="btn btn-success">
+    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+    Add Salary
+</a>
+
+<ul>
+    @foreach (var salary in Model)
+    {
+        <li class="salary-summary">
+            <label>Name</label>
+            <div>@salary.Name</div>
+
+            <label>Starting Salary</label>
+            <div>@salary.StartingSalary</div>
+
+            <label>Growth Type</label>
+            <div>@salary.GrowthTypeDescription</div>
+
+            <label>Yearly Growth Rate</label>
+            <div>@salary.GrowthRate</div>
+
+            <a href="#" class="btn btn-default">Edit</a>
+            <a href="#" class="btn btn-default">View Yearly Values</a>
+        </li>
+    }
+</ul>
